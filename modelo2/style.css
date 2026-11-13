@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=New+Rocker&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url(imagem/Design\ sem\ nome.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: "New Rocker", system-ui;
+}
+
+.biblioteca{
+    max-width: 1400px;
+    margin-top: 180px;
+    margin-right: auto;
+    margin-left: auto;
+    align-items: center;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+    gap: 24px;
+    margin-top: 32px;
+}
+
+.card{
+    border-radius: 18px;
+    perspective: 1200px;
+}
+
+.card:hover{
+    transform: scale(1.08);
+    transition: transform 5s ease;
+    z-index: 10;
+    opacity: 1;
+    filter: grayscale(0%) blur(0);
+}
+ 
+.biblioteca:has(.card:hover) .card:not(:hover){
+    opacity: 0.35;
+    filter: grayscale(40%) blur(1px);
+    transform: scale(0.92);
+    transition: transform 5s ease;
+    z-index: 1;
+}
+
+.card_interno{
+    display: grid;
+    min-width: 140px;
+
+    transform-style: preserve-3d;
+
+    transition: transform 0.65s ease;
+}
+
+.card_face{
+    grid-area: 1/1;
+    padding: 0;
+    border-radius: 18px;
+    backface-visibility: hidden;
+
+    transition: box-shadow 0.3s ease;
+}
+
+.card_face.card_verso{
+    display: grid;
+    align-content: center;
+    gap: 10px;
+    padding: 24px 22px;      
+    font-size: 0.85rem;
+    text-align: center;   
+    background: #D9C8A9;
+    color: #422c10;          
+    transform: rotateY(180deg);
+}
+
+.card_frente{
+    position: relative;
+    display: grid;
+    place-items: center;
+    text-align: center;
+}
+
+.card_img{
+    display: block;
+    width: 100%;
+    border-radius: 20px;
+    border: solid 2px #422c10;
+    gap: 2px;
+}
+
+.titulo{
+    color: #422c10;
+}
+
+.card_foto_legenda{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;                 
+    background-color: #422c103e;
+    text-align: center;
+    padding: 12px 10px;
+    font-weight: bold;
+    border-radius: 0 0 20px 20px;
+}
+
+.card_face h2{
+    font-size: 1.8rem;
+}
+
+.card_verso{
+    display: grid;
+    align-content: center;
+    gap: 7px;
+    background: #D9C8A9;
+
+    transform: rotateY(180deg);
+}
+
+.card:is(:hover) .card_interno{
+    transform: translateY(-8px) rotateY(180deg);
+}
+
+.verso_amorticia{
+    border-left: 8px solid #C28A85;
+}
+
+.verso_boneGrowth{
+    border-left: 8px solid #985E3E;
+}
+
+.verso_sorteLiquida{
+    border-left: 8px solid #C8A145;
+}
+
+.verso_polissuco{
+    border-left: 8px solid #8E9165;
+}
+
+.verso_soroVerdade{
+    border-left: 8px solid #667554;
+}
